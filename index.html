@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Evil Scientists</h1>
+        <article>
+            <section>
+                <form>
+                    <p>
+                        <label for="evilScientistName">Name</label><br><input type="text" tabindex="1"
+                            name="evilScientistName" id="evilScientistName">
+                    </p>
+                    <p>
+                        <label for="evilScientistCountry">Country</label><br><select tabindex="2"
+                            name="evilScientistCountry" id="evilScientistCountry"></select>
+                            
+                    </p>
+                    <p>
+                        <label for="evilScientistHenchmen">Number of henchmen</label><br><input type="number"
+                            tabindex="3" name="evilScientistHenchmen" id="evilScientistHenchmen">
+                    </p>
+                    <p>
+                        <label for="evilScientistDescription">Short description</label><br><input type="text"
+                            tabindex="4" name="evilScientistDescription" id="evilScientistDescription">
+                    </p>
+                    <p>
+                        <button>Add</button>
+                    </p>
+                </form>
+            </section>
+            <section id="list-names">
+                <!-- <div>Evil Bob</div>
+                <div>Evil Mindy</div>
+                <div>Evil Kim</div>
+                <div>Evil Alex</div>
+                <div>Dark Blue</div> -->
+            </section>
+            <section>
+                <p>Name<br><span id="name">-</span></p>
+                <p>Country<br><span id="country">-</span></p>
+                <p>Number of henchmen<br><span id="henchmen">-</span></p>
+                <p>Description<br><span id="description">-</span></p>
+            </section>
+        </article>
+    </main>
+    <section>
+        <div style="width: 800px;"><canvas id="evilcountByCountry"></canvas></div>
+
+        <!-- <script type="module" src="dimensions.js"></script> -->
+        <script type="module" src="index.js">
+            (async function() {
+  
+
+  var ctx=document.getElementById('evilcountByCountry');
+  new Chart(ctx, 
+    {
+      type: 'bar',
+      data: {
+        labels: evilList.map(row => row.country),
+        datasets: [
+          {
+            label: 'Number of known evil scientists per country',
+            data: countries.map(row => row.count)
+          }
+        ]
+      }
+    }
+  );
+})();
+        </script>
+          
+    </section>
+
+    <script src="index.js" defer></script>
+</body>
+</html>
