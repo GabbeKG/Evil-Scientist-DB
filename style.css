@@ -3,52 +3,58 @@
 }
 
 body {
-    width: 100vw;
-    min-width: 500px;
-    max-width: 800px;
+    width: 100%;
+    min-width: 800px;
+    max-width: 1800px;
     height: 100vh;
     margin: 0px;
-    background-color: #a4fbe3;
-    color: #434196;
+    
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
+    background:url("https://a-static.besthdwallpaper.com/mad-scientist-ziggs-wild-rift-splash-art-league-of-legends-lol-wallpaper-3840x1200-65090_62.jpg") 0 0 no-repeat fixed;
+    background-size: 111.25% 100%;
+    
+    display: flex;
+    justify-content:center
 }
 
-main,
+
 h1,
 article,
 section,
 div {
-    padding: 1rem;
-    border: 2px solid #5e87b8;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    padding: 0.5rem;
+    border: 2px solid #0a3569;
+    
 }
 
-h1,
-article {
-    background: rgb(117, 200, 219);
-    background: linear-gradient(90deg, rgba(117, 200, 219, 1) 0%, rgba(164, 251, 227, 1) 16%, rgba(164, 251, 227, 1) 75%, rgba(109, 193, 212, 1) 100%);
-}
+
 
 main {
-    margin-top: 10px;
-    margin-left: 10px;
+  
+  
+  padding: 10px;
+
 }
 
 h1 {
     text-align: center;
+    
 }
 
 article {
     display: flex;
     flex-flow: row;
     justify-content: space-evenly;
+    background-color: rgba(43, 43, 43, 0.8);
 }
 
 section {
     min-width: 175px;
     width: 30%;
-    background-color: #a4fbe3;
+    background-color: #424746;
+    
 }
 
 div {
@@ -56,7 +62,7 @@ div {
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    background-color: #83cee0;
+    background-color: #fbfbfc;
     font-size: 1.2em;
     cursor: default;
 }
@@ -72,7 +78,7 @@ div:last-child {
 span, select,
 input[type=text],
 input[type=number] {
-    border: solid 1px #434196;
+    border: solid 1px #631616;
     width: 100%;
     padding: 5px;
     font-weight: normal;
@@ -91,5 +97,24 @@ section:last-child p {
 
 span {
     display: block;
-    background-color: #bbffec;
+    background-color: #834a94;
+}
+
+.border{
+    background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 10px,
+        #f1c812 10px,
+        #f1c812 20px
+            );
+    min-width: 175px;
+    height: 75px;
+        
+}
+#list-names{
+    color: darkgreen;
+}
+.scientist:active{
+    background-color: cadetblue;
 }

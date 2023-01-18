@@ -70,26 +70,33 @@ function getCountries() {
 var evilList = [];
 //Functions
 //GET
+//Skickar parametern name och jämför innehållet av parametern mot interfacet EvilScientist 
+//och om inget finns eller hunnit laddats in så tillåts det returneras som undefined.
+//Går att ha null istället för undefined men skillnaden är att att med null så måste det finnas ett tomt värde minst.
+//Därefter returneras matchande namn efter att gått igenom arrayen
 var getScientist = function (name) {
     return evilList.find(function (n) { return n.name == name; });
 };
 //POST
 var addNameDiv = function (name) {
     var newDiv = document.createElement("div");
+    newDiv.classList.value = "scientist";
     newDiv.innerHTML = name;
     newDiv.addEventListener("click", function (event) {
         event.preventDefault();
-        var chosenName = this.innerHTML;
-        var chosenScientist = getScientist(chosenName);
-        if (chosenScientist) {
+        const sci=document.querySelector(".scientist");
+        var selectedName = this.innerHTML;
+        var selectedScientist = getScientist(selectedName);
+        if (selectedScientist) {
             var spanName = document.querySelector("span#name");
             var spancountry = document.querySelector("span#country");
             var spanHenchmen = document.querySelector("span#henchmen");
             var spanDescription = document.querySelector("span#description");
-            spanName.innerHTML = chosenScientist.name;
-            spancountry.innerHTML = String(chosenScientist.country);
-            spanHenchmen.innerHTML = String(chosenScientist.henchmen);
-            spanDescription.innerHTML = chosenScientist.description;
+            spanName.innerHTML = selectedScientist.name;
+            spancountry.innerHTML = selectedScientist.country;
+            spanHenchmen.innerHTML = String(selectedScientist.henchmen);
+            spanDescription.innerHTML = selectedScientist.description;
+            sci.classList.toggle("active");
         }
     });
     document.querySelector("section#list-names").append(newDiv);
@@ -98,9 +105,11 @@ var addButton = document.querySelector("button");
 addButton === null || addButton === void 0 ? void 0 : addButton.addEventListener("click", function (event) {
     event.preventDefault();
     var nameElement = document.querySelector("input#evilScientistName");
-    var countryElement = document.getElementById("evilScientistCountry");
+    var countryElement = document.querySelector("select#evilScientistCountry");
     var henchmenElement = document.querySelector("input#evilScientistHenchmen");
     var descriptionElement = document.querySelector("input#evilScientistDescription");
+    var sfxGoodPlay = document.querySelector("#sfxgood");
+    var sfxBadPlay = document.querySelector("#sfxbad");
     if (nameElement.value !== "") {
         if (descriptionElement.value === "")
             descriptionElement.value = "-";
@@ -111,10 +120,18 @@ addButton === null || addButton === void 0 ? void 0 : addButton.addEventListener
             description: descriptionElement.value
         });
         addNameDiv(nameElement.value);
+        sfxGoodPlay.play();
+        nameElement.style.backgroundColor = "#fff";
+        nameElement.style.border = "solid 1px #631616";
         nameElement.value = "";
         countryElement.value = "";
         henchmenElement.value = "";
         descriptionElement.value = "";
+    }
+    else {
+        nameElement.style.border = "solid red 3px";
+        nameElement.style.backgroundColor = "rgba(212, 19, 19, 0.8)";
+        sfxBadPlay.play();
     }
 });
 //CLASS

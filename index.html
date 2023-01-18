@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-
+        Evil Scientists DB
     </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="sfxgood">
+        
+        <source src="./sfx/goodnews.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="sfxbad">
+        
+        <source src="./sfx/badnews.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     <main>
         <h1>Evil Scientists</h1>
+        <div class="border"></div>
         <article>
             <section>
                 <form>
@@ -33,49 +47,28 @@
                         <button>Add</button>
                     </p>
                 </form>
+                
             </section>
             <section id="list-names">
+                
                 <!-- <div>Evil Bob</div>
                 <div>Evil Mindy</div>
                 <div>Evil Kim</div>
                 <div>Evil Alex</div>
                 <div>Dark Blue</div> -->
+                
             </section>
             <section>
+                
                 <p>Name<br><span id="name">-</span></p>
                 <p>Country<br><span id="country">-</span></p>
                 <p>Number of henchmen<br><span id="henchmen">-</span></p>
                 <p>Description<br><span id="description">-</span></p>
             </section>
         </article>
+        <div class="border"></div>
     </main>
-    <section>
-        <div style="width: 800px;"><canvas id="evilcountByCountry"></canvas></div>
 
-        <!-- <script type="module" src="dimensions.js"></script> -->
-        <script type="module" src="index.js">
-            (async function() {
-  
-
-  var ctx=document.getElementById('evilcountByCountry');
-  new Chart(ctx, 
-    {
-      type: 'bar',
-      data: {
-        labels: evilList.map(row => row.country),
-        datasets: [
-          {
-            label: 'Number of known evil scientists per country',
-            data: countries.map(row => row.count)
-          }
-        ]
-      }
-    }
-  );
-})();
-        </script>
-          
-    </section>
 
     <script src="index.js" defer></script>
 </body>
